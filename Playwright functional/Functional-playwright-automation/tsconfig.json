@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@pages/*": ["pages/*"],
+      "@base/*": ["base/*"],
+      "@fixtures/*": ["fixtures/*"],
+      "@utils/*": ["utils/*"],
+      "@helpers/*": ["helpers/*"],
+      "@excel/*": ["excel/*"],
+      "@logger/*": ["logger/*"],
+      "@config/*": ["config/*"],
+      "@constants/*": ["constants/*"],
+      "@api/*": ["api/*"]
+    }
+  },
+  "include": [
+    "tests/**/*.ts",
+    "pages/**/*.ts",
+    "base/**/*.ts",
+    "fixtures/**/*.ts",
+    "utils/**/*.ts",
+    "helpers/**/*.ts",
+    "excel/**/*.ts",
+    "logger/**/*.ts",
+    "config/**/*.ts",
+    "constants/**/*.ts",
+    "api/**/*.ts",
+    "global-setup/**/*.ts",
+    "global-teardown/**/*.ts",
+    "runners/**/*.ts",
+    "logger/**/*.ts",
+    "reporters/**/*.ts",
+    "playwright.config.ts"
+  ]
+}

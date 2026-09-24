@@ -1,0 +1,160 @@
+# Core pipeline stages — included by azure-pipelines.yml (root)
+parameters:
+  - name: testEnvironment
+    type: string
+    default: qa
+  - name: testSuite
+    type: string
+    default: regression
+  - name: browser
+    type: string
+    default: chromium
+  - name: parallelBrowsers
+    type: boolean
+    default: false
+  - name: workers
+    type: number
+    default: 4
+
+stages:
+  - stage: Test
+    displayName: 'Playwright — ${{ parameters.testSuite }} (${{ parameters.testEnvironment }})'
+    jobs:
+
+      - ${{ if eq(parameters.parallelBrowsers, false) }}:
+        - job: PlaywrightRegression
+          displayName: '${{ parameters.testSuite }} · ${{ parameters.browser }} · ${{ parameters.testEnvironment }}'
+          timeoutInMinutes: 120
+          pool:
+            vmImage: ubuntu-latest
+          steps:
+            - template: templates/playwright-job.yml
+              parameters:
+                testEnvironment: ${{ parameters.testEnvironment }}
+                testSuite: ${{ parameters.testSuite }}
+                browser: ${{ parameters.browser }}
+                workers: ${{ parameters.workers }}
+                artifactSuffix: single
+
+      - ${{ if eq(parameters.parallelBrowsers, true) }}:
+        - job: PlaywrightMatrix
+          displayName: '${{ parameters.testSuite }} · matrix · ${{ parameters.testEnvironment }}'
+          timeoutInMinutes: 120
+          pool:
+            vmImage: ubuntu-latest
+          strategy:
+            matrix:
+              Chromium:
+                matrixBrowser: chromium
+              Firefox:
+                matrixBrowser: firefox
+              WebKit:
+                matrixBrowser: webkit
+            maxParallel: 3
+          steps:
+            - template: templates/playwright-job.yml
+              parameters:
+                testEnvironment: ${{ parameters.testEnvironment }}
+                testSuite: ${{ parameters.testSuite }}
+                browser: $(matrixBrowser)
+                workers: ${{ parameters.workers }}
+                artifactSuffix: $(matrixBrowser)
+
+  - stage: Publish
+    displayName: 'Publish Reports & Artifacts'
+    dependsOn: Test
+    condition: always()
+    jobs:
+      - job: PublishArtifacts
+        displayName: 'Reports, logs, screenshots'
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - checkout: none
+
+          - download: current
+            displayName: 'Download staged report bundles'
+            continueOnError: true
+
+          - script: |
+              set -e
+              MERGE="$(Pipeline.Workspace)/merged-reports"
+              mkdir -p "$MERGE/playwright-report" "$MERGE/allure-report" "$MERGE/enterprise" \
+                       "$MERGE/logs" "$MERGE/screenshots" "$MERGE/test-results"
+
+              for dir in $(Pipeline.Workspace)/pipeline-reports-*; do
+                [ -d "$dir" ] || continue
+                echo "Merging $dir"
+                [ -d "$dir/playwright-report" ] && cp -rn "$dir/playwright-report/." "$MERGE/playwright-report/" 2>/dev/null || true
+                [ -d "$dir/allure-report" ] && cp -rn "$dir/allure-report/." "$MERGE/allure-report/" 2>/dev/null || true
+                [ -d "$dir/enterprise" ] && cp -rn "$dir/enterprise/." "$MERGE/enterprise/" 2>/dev/null || true
+                [ -d "$dir/logs" ] && cp -rn "$dir/logs/." "$MERGE/logs/" 2>/dev/null || true
+                [ -d "$dir/screenshots" ] && cp -rn "$dir/screenshots/." "$MERGE/screenshots/" 2>/dev/null || true
+                [ -d "$dir/test-results" ] && cp -rn "$dir/test-results/." "$MERGE/test-results/" 2>/dev/null || true
+                [ -f "$dir/junit-results.xml" ] && cp "$dir/junit-results.xml" "$MERGE/" 2>/dev/null || true
+              done
+
+              echo "Merged report tree:"
+              ls -laR "$MERGE" || true
+            displayName: 'Merge multi-job report bundles'
+            condition: always()
+
+          - task: PublishTestResults@2
+            displayName: 'Publish JUnit to Azure Test tab'
+            condition: always()
+            inputs:
+              testResultsFormat: JUnit
+              testResultsFiles: '**/junit-results.xml'
+              searchFolder: '$(Pipeline.Workspace)/merged-reports'
+              testRunTitle: 'LivePlus Playwright — ${{ parameters.testSuite }} (${{ parameters.testEnvironment }})'
+              mergeTestResults: true
+              failTaskOnFailedTests: true
+              publishRunAttachments: true
+
+          - task: PublishPipelineArtifact@1
+            displayName: 'Artifact — Playwright HTML report'
+            condition: always()
+            continueOnError: true
+            inputs:
+              targetPath: '$(Pipeline.Workspace)/merged-reports/playwright-report'
+              artifact: playwright-html-report
+
+          - task: PublishPipelineArtifact@1
+            displayName: 'Artifact — Allure report'
+            condition: always()
+            continueOnError: true
+            inputs:
+              targetPath: '$(Pipeline.Workspace)/merged-reports/allure-report'
+              artifact: allure-report
+
+          - task: PublishPipelineArtifact@1
+            displayName: 'Artifact — Execution summary + JSON/JUnit'
+            condition: always()
+            continueOnError: true
+            inputs:
+              targetPath: '$(Pipeline.Workspace)/merged-reports/enterprise'
+              artifact: enterprise-reports
+
+          - task: PublishPipelineArtifact@1
+            displayName: 'Artifact — Automation logs'
+            condition: always()
+            continueOnError: true
+            inputs:
+              targetPath: '$(Pipeline.Workspace)/merged-reports/logs'
+              artifact: playwright-logs
+
+          - task: PublishPipelineArtifact@1
+            displayName: 'Artifact — Screenshots'
+            condition: always()
+            continueOnError: true
+            inputs:
+              targetPath: '$(Pipeline.Workspace)/merged-reports/screenshots'
+              artifact: playwright-screenshots
+
+          - task: PublishPipelineArtifact@1
+            displayName: 'Artifact — Videos & traces'
+            condition: always()
+            continueOnError: true
+            inputs:
+              targetPath: '$(Pipeline.Workspace)/merged-reports/test-results'
+              artifact: test-results-artifacts

@@ -1,0 +1,144 @@
+# Reusable Playwright test job steps — install, run, bundle artifacts
+parameters:
+  - name: testEnvironment
+    type: string
+  - name: testSuite
+    type: string
+  - name: browser
+    type: string
+  - name: workers
+    type: number
+    default: 4
+  - name: artifactSuffix
+    type: string
+    default: single
+
+steps:
+  - checkout: self
+    fetchDepth: 1
+    displayName: 'Checkout repository (shallow)'
+
+  - task: NodeTool@0
+    displayName: 'Install Node.js $(NODE_VERSION)'
+    inputs:
+      versionSpec: '$(NODE_VERSION)'
+
+  - task: Cache@2
+    displayName: 'Cache npm packages'
+    inputs:
+      key: 'npm | "$(Agent.OS)" | package-lock.json'
+      restoreKeys: |
+        npm | "$(Agent.OS)"
+      path: $(npm_config_cache)
+
+  - script: npm ci --prefer-offline --no-audit
+    displayName: 'Install dependencies (npm ci)'
+    env:
+      npm_config_cache: $(npm_config_cache)
+
+  - script: npx playwright install --with-deps ${{ parameters.browser }}
+    displayName: 'Install Playwright browser — ${{ parameters.browser }}'
+    env:
+      PLAYWRIGHT_BROWSERS_PATH: $(PLAYWRIGHT_BROWSERS_PATH)
+
+  - script: |
+      echo "Environment : ${{ parameters.testEnvironment }}"
+      echo "Suite       : ${{ parameters.testSuite }}"
+      echo "Browser     : ${{ parameters.browser }}"
+      echo "Workers     : ${{ parameters.workers }}"
+      echo "Base URL    : (from credentials/${{ parameters.testEnvironment }}.env)"
+    displayName: 'Print run configuration'
+
+  - script: |
+      npx playwright test \
+        --config=runners/${{ parameters.testSuite }}.runner.ts \
+        --project=${{ parameters.browser }}
+    displayName: 'Execute ${{ parameters.testSuite }} suite'
+    continueOnError: true
+    env:
+      TEST_ENV: ${{ parameters.testEnvironment }}
+      CI: 'true'
+      HEADLESS: 'true'
+      PLAYWRIGHT_WORKERS: '${{ parameters.workers }}'
+      PLAYWRIGHT_RETRIES: '$(PLAYWRIGHT_RETRIES)'
+      BROWSER: ${{ parameters.browser }}
+      USERNAME: $(USERNAME)
+      PASSWORD: $(PASSWORD)
+      API_KEY: $(API_KEY)
+      DB_USER: $(DB_USER)
+      DB_PASSWORD: $(DB_PASSWORD)
+      SECONDARY_USERNAME: $(SECONDARY_USERNAME)
+      SECONDARY_PASSWORD: $(SECONDARY_PASSWORD)
+
+  - script: npm run report:ci
+    displayName: 'Generate Allure HTML report'
+    condition: always()
+
+  - script: |
+      set -e
+      BUNDLE_DIR="$(Pipeline.Workspace)/pipeline-reports"
+      mkdir -p "$BUNDLE_DIR/enterprise" "$BUNDLE_DIR/screenshots" "$BUNDLE_DIR/logs"
+
+      # Playwright HTML
+      if [ -d playwright-report ]; then
+        cp -r playwright-report "$BUNDLE_DIR/"
+      else
+        mkdir -p "$BUNDLE_DIR/playwright-report"
+      fi
+
+      # Allure
+      if [ -d reports/allure-report ]; then
+        cp -r reports/allure-report "$BUNDLE_DIR/"
+      else
+        mkdir -p "$BUNDLE_DIR/allure-report"
+      fi
+
+      # Enterprise summary + JUnit + JSON
+      for f in execution-summary.html execution-summary.json junit-results.xml results.json; do
+        if [ -f "reports/$f" ]; then cp "reports/$f" "$BUNDLE_DIR/enterprise/"; fi
+      done
+      if [ -f "reports/${{ parameters.testSuite }}-results.json" ]; then
+        cp "reports/${{ parameters.testSuite }}-results.json" "$BUNDLE_DIR/enterprise/"
+      fi
+
+      # Logs
+      if [ -d logs ]; then cp -r logs/* "$BUNDLE_DIR/logs/" 2>/dev/null || cp -r logs "$BUNDLE_DIR/logs"; fi
+
+      # Screenshots — framework output + dedicated folder
+      if [ -d screenshots ] && [ "$(ls -A screenshots 2>/dev/null)" ]; then
+        cp -r screenshots/* "$BUNDLE_DIR/screenshots/" 2>/dev/null || true
+      fi
+      if [ -d test-results ]; then
+        find test-results -name '*.png' -exec cp {} "$BUNDLE_DIR/screenshots/" \; 2>/dev/null || true
+        cp -r test-results "$BUNDLE_DIR/"
+      else
+        mkdir -p "$BUNDLE_DIR/test-results"
+      fi
+
+      # JUnit at bundle root for PublishTestResults search
+      if [ -f reports/junit-results.xml ]; then
+        cp reports/junit-results.xml "$BUNDLE_DIR/"
+      fi
+
+      echo "Artifact bundle prepared at $BUNDLE_DIR"
+      ls -laR "$BUNDLE_DIR" || true
+    displayName: 'Bundle reports, logs, and screenshots'
+    condition: always()
+
+  - task: PublishPipelineArtifact@1
+    displayName: 'Stage pipeline-reports for publish stage'
+    condition: always()
+    inputs:
+      targetPath: '$(Pipeline.Workspace)/pipeline-reports'
+      artifact: pipeline-reports-${{ parameters.artifactSuffix }}
+
+  - task: PublishTestResults@2
+    displayName: 'Publish JUnit (inline — PR annotations)'
+    condition: always()
+    inputs:
+      testResultsFormat: JUnit
+      testResultsFiles: reports/junit-results.xml
+      testRunTitle: 'LivePlus — ${{ parameters.testSuite }} (${{ parameters.browser }})'
+      mergeTestResults: true
+      failTaskOnFailedTests: false
+      publishRunAttachments: true

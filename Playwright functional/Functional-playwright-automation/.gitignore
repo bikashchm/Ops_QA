@@ -1,0 +1,22 @@
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+# Framework artifacts
+/reports/
+/screenshots/
+/videos/
+/logs/
+/runners/reports/
+/runners/playwright-report/
+
+# Credentials (never commit secrets)
+/credentials/.env
+/credentials/.env.local
+.env
+.env.local

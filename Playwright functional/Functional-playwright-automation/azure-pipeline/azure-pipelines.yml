@@ -1,0 +1,69 @@
+# Configure Azure DevOps pipeline YAML path to: /azure-pipelines.yml (repository root)
+# This file is kept for teams that reference azure-pipeline/ folder historically.
+
+trigger:
+  branches:
+    include:
+      - main
+      - master
+      - develop
+      - release/*
+
+pr:
+  branches:
+    include:
+      - main
+      - master
+      - develop
+      - release/*
+
+schedules:
+  - cron: '0 3 * * 1-5'
+    displayName: Weekday nightly regression (QA)
+    branches:
+      include:
+        - main
+        - master
+    always: true
+
+parameters:
+  - name: testEnvironment
+    displayName: Target Environment
+    type: string
+    default: qa
+    values: [qa, uat, stage, prod]
+  - name: testSuite
+    displayName: Test Suite
+    type: string
+    default: regression
+    values: [smoke, regression, sanity, admin, job]
+  - name: browser
+    displayName: Browser Project
+    type: string
+    default: chromium
+    values: [chromium, firefox, webkit]
+  - name: parallelBrowsers
+    displayName: Run all browsers in parallel (matrix)
+    type: boolean
+    default: false
+  - name: workers
+    displayName: Playwright parallel workers
+    type: number
+    default: 4
+
+variables:
+  - template: variables.yml
+  # - group: LivePlus-Playwright-Secrets
+  - name: TEST_ENV
+    value: ${{ parameters.testEnvironment }}
+  - name: PLAYWRIGHT_WORKERS
+    value: ${{ parameters.workers }}
+
+extends:
+  template: pipeline.yml
+  parameters:
+    testEnvironment: ${{ parameters.testEnvironment }}
+    testSuite: ${{ parameters.testSuite }}
+    browser: ${{ parameters.browser }}
+    parallelBrowsers: ${{ parameters.parallelBrowsers }}
+    workers: ${{ parameters.workers }}

@@ -1,0 +1,135 @@
+# =============================================================================
+# LivePlus Playwright — PRIORITY RUNNER Pipeline (Azure DevOps)
+# =============================================================================
+# What this does:
+#   • Focuses on the master branch.
+#   • Runs the priority-ordered runner only:
+#       runners/priority.runner.ts
+#     Suite order and test list live in that file (PRIORITY_SUITE).
+#     Add/remove scripts there — no pipeline YAML change needed.
+#   • Reports:
+#       1. Summary tab → brief step table (Markdown on run page)
+#       2. Tests tab   → pass/fail per test (JUnit XML — not for reading)
+#       3. Artifact "execution-summary" → download execution-summary.html
+#          (detailed ✅/❌ per step — open in Edge/Chrome; no extension needed)
+#
+# HOW TO VIEW THE HTML REPORT:
+#   Run → Summary → top-right "Artifacts" → execution-summary → Download
+#   → open execution-summary.html in Microsoft Edge
+# CREDENTIALS:
+#   Login username/password are read from the Excel test data
+#   (test-data/excel/Liveplus_TestData.xlsx → keys "Email" / "Password"),
+#   exactly like the old BDD framework. No pipeline secret variables needed.
+#
+# PIPELINE SETUP:
+#   Pipelines → New pipeline → repo → Existing YAML → /azure-pipeline-priority.yml
+# =============================================================================
+
+name: LivePlus-Priority-$(Date:yyyyMMdd)$(Rev:.r)
+
+# Manual runs only on this branch. Do not start CI on git push.
+# Master keeps its own trigger (master branch only).
+trigger: none
+pr: none
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  - name: CI
+    value: 'true'
+  - name: HEADLESS
+    value: 'true'
+  - name: TEST_ENV
+    value: 'uat'
+  - name: NODE_VERSION
+    value: '20.x'
+  - name: PRIORITY_RUNNER
+    value: 'runners/priority.runner.ts'
+
+jobs:
+  - job: PriorityRun
+    displayName: 'Priority-ordered Playwright run'
+    timeoutInMinutes: 180
+    steps:
+      - checkout: self
+        fetchDepth: 1
+        displayName: 'Checkout branch'
+
+      - task: NodeTool@0
+        displayName: 'Install Node.js $(NODE_VERSION)'
+        inputs:
+          versionSpec: '$(NODE_VERSION)'
+
+      - script: npm ci --prefer-offline --no-audit
+        displayName: 'Install dependencies (npm ci)'
+
+      - script: npx playwright install --with-deps chromium
+        displayName: 'Install Playwright browser (chromium)'
+
+      - script: |
+          echo "Branch      : $(Build.SourceBranch)"
+          echo "Environment : $(TEST_ENV)"
+          echo "Runner      : $(PRIORITY_RUNNER)"
+        displayName: 'Print run configuration'
+
+      - script: |
+          npx playwright test --config=$(PRIORITY_RUNNER)
+        displayName: 'Execute priority suite (ordered)'
+        continueOnError: true
+        env:
+          CI: 'true'
+          HEADLESS: 'true'
+          TEST_ENV: $(TEST_ENV)
+          BROWSER: chromium
+
+      # ── Inline run-page report (visible WITHOUT downloading anything) ──────
+      - script: node scripts/generate-ci-summary.js
+        displayName: 'Build run summary (Markdown)'
+        condition: always()
+
+      - script: |
+          echo "##vso[task.uploadsummary]$(System.DefaultWorkingDirectory)/reports/ci-summary.md"
+        displayName: 'Attach summary to run page'
+        condition: always()
+
+      # ── Pass/fail per test → Azure "Tests" tab (JUnit XML for Azure UI only) ─
+      - task: PublishTestResults@2
+        displayName: 'Publish results → Azure Tests tab'
+        condition: always()
+        continueOnError: true
+        inputs:
+          testResultsFormat: JUnit
+          testResultsFiles: 'reports/junit-results.xml'
+          testRunTitle: 'LivePlus Priority Suite ($(TEST_ENV))'
+          mergeTestResults: true
+          # Keep publish green so HTML/JUnit artifacts always upload; suite fail is already in Tests tab.
+          failTaskOnFailedTests: false
+          publishRunAttachments: true
+
+      # ── Downloadable Playwright HTML report ───────────────────────────────
+      - task: PublishPipelineArtifact@1
+        displayName: 'Artifact — Playwright HTML report'
+        condition: always()
+        continueOnError: true
+        inputs:
+          targetPath: 'playwright-report'
+          artifact: playwright-html-report
+
+      # ── DOWNLOAD THIS: detailed step report (execution-summary.html) ────────
+      - task: PublishPipelineArtifact@1
+        displayName: 'Artifact — Step execution report (HTML)'
+        condition: always()
+        continueOnError: true
+        inputs:
+          targetPath: 'reports'
+          artifact: execution-summary
+
+      # ── Screenshots / videos / traces for failed steps ───────────────────
+      - task: PublishPipelineArtifact@1
+        displayName: 'Artifact — Test results (screenshots/videos/traces)'
+        condition: always()
+        continueOnError: true
+        inputs:
+          targetPath: 'test-results'
+          artifact: test-results-artifacts

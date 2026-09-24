@@ -1,0 +1,20 @@
+# LivePlus Playwright — shared non-secret pipeline variables
+# Secret values: define in Azure DevOps → Pipelines → Library → Variable groups
+#   Group name: LivePlus-Playwright-Secrets (recommended)
+#   Secrets (mark as secret): USERNAME, PASSWORD, API_KEY, DB_USER, DB_PASSWORD,
+#                             SECONDARY_USERNAME, SECONDARY_PASSWORD
+variables:
+  - name: CI
+    value: 'true'
+  - name: HEADLESS
+    value: 'true'
+  - name: PLAYWRIGHT_WORKERS
+    value: '4'
+  - name: PLAYWRIGHT_RETRIES
+    value: '2'
+  - name: NODE_VERSION
+    value: '20.x'
+  - name: npm_config_cache
+    value: $(Pipeline.Workspace)/.npm
+  - name: PLAYWRIGHT_BROWSERS_PATH
+    value: $(Pipeline.Workspace)/.pw-browsers
