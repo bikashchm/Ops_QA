@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="22" passed="20" failed="2" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-03-03T16:48:52 IST" name="Default suite" finished-at="2026-03-03T17:08:42 IST" duration-ms="1190103">
+    <groups>
+    </groups>
+    <test started-at="2026-03-03T16:48:52 IST" name="Default test" finished-at="2026-03-03T17:08:42 IST" duration-ms="1190103">
+      <class name="com.qa.visual.runner.MasterTestRunner">
+        <test-method is-config="true" signature="beforeClassSetup()[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:48:52 IST" name="beforeClassSetup" finished-at="2026-03-03T16:48:52 IST" duration-ms="11" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClassSetup -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:48:52 IST" name="registerTestName" finished-at="2026-03-03T16:48:52 IST" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runLoginTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method signature="runLoginTest()[pri:1, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:48:52 IST" name="runLoginTest" finished-at="2026-03-03T16:49:20 IST" duration-ms="27492" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runLoginTest -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:49:20 IST" name="registerTestName" finished-at="2026-03-03T16:49:20 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runLandingPageVisualTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method signature="runLandingPageVisualTest()[pri:2, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:49:20 IST" name="runLandingPageVisualTest" finished-at="2026-03-03T16:49:56 IST" duration-ms="36371" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runLandingPageVisualTest -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:49:56 IST" name="registerTestName" finished-at="2026-03-03T16:49:56 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runHomePageTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method signature="runHomePageTest()[pri:3, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:49:56 IST" name="runHomePageTest" finished-at="2026-03-03T16:50:38 IST" duration-ms="42101" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runHomePageTest -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:50:38 IST" name="registerTestName" finished-at="2026-03-03T16:50:38 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runWellAndTreatmentVisualTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method signature="runWellAndTreatmentVisualTest()[pri:4, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:50:38 IST" name="runWellAndTreatmentVisualTest" finished-at="2026-03-03T16:51:43 IST" duration-ms="64438" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runWellAndTreatmentVisualTest -->
+        <test-method signature="runWellAndTreatmentLocationVisualTest()[pri:5, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:51:43 IST" name="runWellAndTreatmentLocationVisualTest" finished-at="2026-03-03T16:52:40 IST" duration-ms="56695" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runWellAndTreatmentLocationVisualTest -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:51:43 IST" name="registerTestName" finished-at="2026-03-03T16:51:43 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runWellAndTreatmentLocationVisualTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method signature="runWellAndTreatmentCommentsVisualTest()[pri:6, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:52:40 IST" name="runWellAndTreatmentCommentsVisualTest" finished-at="2026-03-03T16:53:24 IST" duration-ms="44531" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runWellAndTreatmentCommentsVisualTest -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:52:40 IST" name="registerTestName" finished-at="2026-03-03T16:52:40 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runWellAndTreatmentCommentsVisualTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method signature="runChannelInputTest()[pri:7, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:53:24 IST" name="runChannelInputTest" finished-at="2026-03-03T16:54:13 IST" duration-ms="49142" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runChannelInputTest -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:53:24 IST" name="registerTestName" finished-at="2026-03-03T16:53:24 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runChannelInputTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:54:13 IST" name="registerTestName" finished-at="2026-03-03T16:54:13 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runWellboreConfigurationTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method signature="runWellboreConfigurationTest()[pri:8, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:54:13 IST" name="runWellboreConfigurationTest" finished-at="2026-03-03T16:56:26 IST" duration-ms="132706" status="FAIL">
+          <exception class="com.microsoft.playwright.TimeoutError">
+            <message>
+              <![CDATA[Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\progress.js:75:26)
+    at Frame.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\frames.js:1022:23)
+    at FrameDispatcher.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\frameDispatcher.js:157:30)
+    at FrameDispatcher._handleCommand (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:96:40)
+    at DispatcherConnection.dispatch (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:366:39)
+}
+Call log:
+-   - waiting for locator("//ng-select[@id='specify']/div/div")
+-     - locator resolved to <div class="ng-value-container">…</div>
+-   - attempting click action
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-     - waiting 20ms
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-       - waiting 100ms
+-     57 × waiting for element to be visible, enabled and stable
+-        - element is not visible
+-      - retrying click action
+-        - waiting 500ms
+-     - waiting for element to be visible, enabled and stable
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\progress.js:75:26)
+    at Frame.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\frames.js:1022:23)
+    at FrameDispatcher.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\frameDispatcher.js:157:30)
+    at FrameDispatcher._handleCommand (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:96:40)
+    at DispatcherConnection.dispatch (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:366:39)
+}
+Call log:
+-   - waiting for locator("//ng-select[@id='specify']/div/div")
+-     - locator resolved to <div class="ng-value-container">…</div>
+-   - attempting click action
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-     - waiting 20ms
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-       - waiting 100ms
+-     57 × waiting for element to be visible, enabled and stable
+-        - element is not visible
+-      - retrying click action
+-        - waiting 500ms
+-     - waiting for element to be visible, enabled and stable
+
+at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
+at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:132)
+at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
+at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:118)
+at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:252)
+at com.microsoft.playwright.impl.FrameImpl.lambda$click$8(FrameImpl.java:243)
+at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
+at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:97)
+at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
+at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:243)
+at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:174)
+at com.microsoft.playwright.Locator.click(Locator.java:2508)
+at com.qa.visual.tests.WellboreConfiguration.verifyWellboreConfigurationPageVisualRegression(WellboreConfiguration.java:110)
+at com.qa.visual.runner.MasterTestRunner.runWellboreConfigurationTest(MasterTestRunner.java:172)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\progress.js:75:26)
+    at Frame.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\frames.js:1022:23)
+    at FrameDispatcher.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\frameDispatcher.js:157:30)
+    at FrameDispatcher._handleCommand (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:96:40)
+    at DispatcherConnection.dispatch (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:366:39)
+}
+Call log:
+-   - waiting for locator("//ng-select[@id='specify']/div/div")
+-     - locator resolved to <div class="ng-value-container">…</div>
+-   - attempting click action
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-     - waiting 20ms
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-       - waiting 100ms
+-     57 × waiting for element to be visible, enabled and stable
+-        - element is not visible
+-      - retrying click action
+-        - waiting 500ms
+-     - waiting for element to be visible, enabled and stable
+
+at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:254)
+at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
+at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:130)
+... 39 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.microsoft.playwright.TimeoutError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runWellboreConfigurationTest -->
+        <test-method signature="runHeatTransferVisualRegressionTest()[pri:9, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:56:26 IST" name="runHeatTransferVisualRegressionTest" finished-at="2026-03-03T16:57:28 IST" duration-ms="62455" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runHeatTransferVisualRegressionTest -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:56:26 IST" name="registerTestName" finished-at="2026-03-03T16:56:26 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runHeatTransferVisualRegressionTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:57:28 IST" name="registerTestName" finished-at="2026-03-03T16:57:28 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runResorviorParameterVisualTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method signature="runResorviorParameterVisualTest()[pri:10, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:57:28 IST" name="runResorviorParameterVisualTest" finished-at="2026-03-03T16:58:03 IST" duration-ms="34687" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runResorviorParameterVisualTest -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:58:03 IST" name="registerTestName" finished-at="2026-03-03T16:58:03 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runMaterialSelectionTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method signature="runMaterialSelectionTest()[pri:11, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T16:58:03 IST" name="runMaterialSelectionTest" finished-at="2026-03-03T17:00:09 IST" duration-ms="125492" status="FAIL">
+          <exception class="com.microsoft.playwright.TimeoutError">
+            <message>
+              <![CDATA[Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\progress.js:75:26)
+    at Frame.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\frames.js:1022:23)
+    at FrameDispatcher.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\frameDispatcher.js:157:30)
+    at FrameDispatcher._handleCommand (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:96:40)
+    at DispatcherConnection.dispatch (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:366:39)
+}
+Call log:
+-   - waiting for locator("//*[@alt='Edit']")
+-     - locator resolved to <img alt="Edit" src="assets/icons/edit_square.svg"/>
+-   - attempting click action
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is visible, enabled and stable
+-       - scrolling into view if needed
+-       - done scrolling
+-       - <div>…</div> intercepts pointer events
+-     - retrying click action
+-     - waiting 20ms
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is visible, enabled and stable
+-       - scrolling into view if needed
+-       - done scrolling
+-       - <div>…</div> intercepts pointer events
+-     - retrying click action
+-       - waiting 100ms
+-     57 × waiting for element to be visible, enabled and stable
+-        - element is visible, enabled and stable
+-        - scrolling into view if needed
+-        - done scrolling
+-        - <div>…</div> intercepts pointer events
+-      - retrying click action
+-        - waiting 500ms
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\progress.js:75:26)
+    at Frame.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\frames.js:1022:23)
+    at FrameDispatcher.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\frameDispatcher.js:157:30)
+    at FrameDispatcher._handleCommand (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:96:40)
+    at DispatcherConnection.dispatch (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:366:39)
+}
+Call log:
+-   - waiting for locator("//*[@alt='Edit']")
+-     - locator resolved to <img alt="Edit" src="assets/icons/edit_square.svg"/>
+-   - attempting click action
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is visible, enabled and stable
+-       - scrolling into view if needed
+-       - done scrolling
+-       - <div>…</div> intercepts pointer events
+-     - retrying click action
+-     - waiting 20ms
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is visible, enabled and stable
+-       - scrolling into view if needed
+-       - done scrolling
+-       - <div>…</div> intercepts pointer events
+-     - retrying click action
+-       - waiting 100ms
+-     57 × waiting for element to be visible, enabled and stable
+-        - element is visible, enabled and stable
+-        - scrolling into view if needed
+-        - done scrolling
+-        - <div>…</div> intercepts pointer events
+-      - retrying click action
+-        - waiting 500ms
+
+at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
+at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:132)
+at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
+at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:118)
+at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:252)
+at com.microsoft.playwright.impl.PageImpl.lambda$click$18(PageImpl.java:688)
+at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
+at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:97)
+at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
+at com.microsoft.playwright.impl.PageImpl.click(PageImpl.java:687)
+at com.microsoft.playwright.Page.click(Page.java:3931)
+at com.qa.visual.utils.CommonUtils.click(CommonUtils.java:88)
+at com.qa.visual.tests.Material_Selection.verifyMaterialSelectionWorkflowVisuals(Material_Selection.java:66)
+at com.qa.visual.runner.MasterTestRunner.runMaterialSelectionTest(MasterTestRunner.java:208)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\progress.js:75:26)
+    at Frame.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\frames.js:1022:23)
+    at FrameDispatcher.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\frameDispatcher.js:157:30)
+    at FrameDispatcher._handleCommand (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:96:40)
+    at DispatcherConnection.dispatch (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:366:39)
+}
+Call log:
+-   - waiting for locator("//*[@alt='Edit']")
+-     - locator resolved to <img alt="Edit" src="assets/icons/edit_square.svg"/>
+-   - attempting click action
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is visible, enabled and stable
+-       - scrolling into view if needed
+-       - done scrolling
+-       - <div>…</div> intercepts pointer events
+-     - retrying click action
+-     - waiting 20ms
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is visible, enabled and stable
+-       - scrolling into view if needed
+-       - done scrolling
+-       - <div>…</div> intercepts pointer events
+-     - retrying click action
+-       - waiting 100ms
+-     57 × waiting for element to be visible, enabled and stable
+-        - element is visible, enabled and stable
+-        - scrolling into view if needed
+-        - done scrolling
+-        - <div>…</div> intercepts pointer events
+-      - retrying click action
+-        - waiting 500ms
+
+at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:254)
+at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
+at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:130)
+... 39 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.microsoft.playwright.TimeoutError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runMaterialSelectionTest -->
+        <test-method signature="runTreatmentScheduleTest()[pri:12, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:00:09 IST" name="runTreatmentScheduleTest" finished-at="2026-03-03T17:01:10 IST" duration-ms="61550" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runTreatmentScheduleTest -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:00:09 IST" name="registerTestName" finished-at="2026-03-03T17:00:09 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runTreatmentScheduleTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:01:10 IST" name="registerTestName" finished-at="2026-03-03T17:01:10 IST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runEntryFrictionTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method signature="runEntryFrictionTest()[pri:13, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:01:10 IST" name="runEntryFrictionTest" finished-at="2026-03-03T17:01:57 IST" duration-ms="46752" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runEntryFrictionTest -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:01:57 IST" name="registerTestName" finished-at="2026-03-03T17:01:57 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runPlotTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method signature="runPlotTest()[pri:14, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:01:57 IST" name="runPlotTest" finished-at="2026-03-03T17:03:13 IST" duration-ms="75658" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runPlotTest -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:03:13 IST" name="registerTestName" finished-at="2026-03-03T17:03:13 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runReportTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method signature="runReportTest()[pri:15, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:03:13 IST" name="runReportTest" finished-at="2026-03-03T17:04:04 IST" duration-ms="51020" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runReportTest -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:04:04 IST" name="registerTestName" finished-at="2026-03-03T17:04:04 IST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runUserDefinedChannelTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method signature="runUserDefinedChannelTest()[pri:16, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:04:04 IST" name="runUserDefinedChannelTest" finished-at="2026-03-03T17:04:44 IST" duration-ms="40091" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runUserDefinedChannelTest -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:04:44 IST" name="registerTestName" finished-at="2026-03-03T17:04:44 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runVersionControlTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method signature="runVersionControlTest()[pri:17, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:04:44 IST" name="runVersionControlTest" finished-at="2026-03-03T17:05:30 IST" duration-ms="46692" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runVersionControlTest -->
+        <test-method signature="runSaveAndNextTest()[pri:18, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:05:30 IST" name="runSaveAndNextTest" finished-at="2026-03-03T17:06:12 IST" duration-ms="41868" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runSaveAndNextTest -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:05:30 IST" name="registerTestName" finished-at="2026-03-03T17:05:30 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runSaveAndNextTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:06:12 IST" name="registerTestName" finished-at="2026-03-03T17:06:12 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runRunModelTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method signature="runRunModelTest()[pri:19, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:06:12 IST" name="runRunModelTest" finished-at="2026-03-03T17:07:06 IST" duration-ms="53490" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runRunModelTest -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:07:06 IST" name="registerTestName" finished-at="2026-03-03T17:07:06 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runNewDashboardTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method signature="runNewDashboardTest()[pri:20, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:07:06 IST" name="runNewDashboardTest" finished-at="2026-03-03T17:07:50 IST" duration-ms="44555" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runNewDashboardTest -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:07:50 IST" name="registerTestName" finished-at="2026-03-03T17:07:50 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runMyProfileTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method signature="runMyProfileTest()[pri:21, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:07:50 IST" name="runMyProfileTest" finished-at="2026-03-03T17:08:27 IST" duration-ms="36713" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runMyProfileTest -->
+        <test-method is-config="true" signature="registerTestName(java.lang.reflect.Method)[pri:0, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:08:27 IST" name="registerTestName" finished-at="2026-03-03T17:08:27 IST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.visual.runner.MasterTestRunner.runForgetPasswordTest() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTestName -->
+        <test-method signature="runForgetPasswordTest()[pri:22, instance:com.qa.visual.runner.MasterTestRunner@179ece50]" started-at="2026-03-03T17:08:27 IST" name="runForgetPasswordTest" finished-at="2026-03-03T17:08:42 IST" duration-ms="15465" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runForgetPasswordTest -->
+      </class> <!-- com.qa.visual.runner.MasterTestRunner -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

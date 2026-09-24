@@ -1,0 +1,101 @@
+# Disable CI trigger
+trigger: none
+
+pool:
+  vmImage: ubuntu-latest
+
+jobs:
+- job: VisualRegression
+  displayName: Playwright Visual Regression Tests
+  timeoutInMinutes: 360
+
+  steps:
+
+  - task: JavaToolInstaller@0
+    displayName: Install Java 17
+    inputs:
+      versionSpec: '17'
+      jdkArchitectureOption: 'x64'
+      jdkSourceOption: 'PreInstalled'
+
+  - task: Maven@4
+    displayName: Run Visual Regression Tests
+    inputs:
+      mavenPomFile: 'pom.xml'
+      goals: 'clean test'
+      options: '-Dtest=MasterTestRunner'
+      publishJUnitResults: true
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '1.17'
+
+  # 🔥 AUTO-GENERATE SUMMARY FROM TESTNG RESULTS (NO HEREDOC)
+  - script: |
+      echo "Generating Visual Regression Summary..."
+
+      REPORT_DIR="$(Build.SourcesDirectory)/target/surefire-reports"
+      SUMMARY_FILE="$(Build.SourcesDirectory)/visual-summary.md"
+
+      TOTAL=0
+      FAILED=0
+      SKIPPED=0
+
+      for file in $REPORT_DIR/TEST-*.xml; do
+        t=$(grep -o 'tests="[0-9]*"' "$file" | head -1 | cut -d'"' -f2)
+        f=$(grep -o 'failures="[0-9]*"' "$file" | head -1 | cut -d'"' -f2)
+        s=$(grep -o 'skipped="[0-9]*"' "$file" | head -1 | cut -d'"' -f2)
+
+        TOTAL=$((TOTAL + t))
+        FAILED=$((FAILED + f))
+        SKIPPED=$((SKIPPED + s))
+      done
+
+      PASSED=$((TOTAL - FAILED - SKIPPED))
+
+      printf "%s\n" \
+      "# Visual Regression Test Report" \
+      "" \
+      "## Environment Details" \
+      "- Environment: QA" \
+      "- Browser: Chromium (Headless)" \
+      "- OS: Azure Ubuntu Agent" \
+      "- Java: 17" \
+      "- Framework: Playwright + TestNG" \
+      "" \
+      "---" \
+      "" \
+      "## Execution Summary" \
+      "- Total Tests: $TOTAL" \
+      "- Passed: $PASSED" \
+      "- Failed: $FAILED" \
+      "- Skipped: $SKIPPED" \
+      "" \
+      "---" \
+      "" \
+      "## Detailed HTML Report" \
+      "Download from Artifacts: Visual-Regression-Report" \
+      "Open file: index.html" \
+      "" \
+      "---" \
+      "" \
+      "## Visual Evidence" \
+      "- Baseline screenshots" \
+      "- Current execution screenshots" \
+      "- Diff screenshots" \
+      > "$SUMMARY_FILE"
+
+      echo "Summary generated successfully."
+    displayName: Generate Visual Summary from TestNG Results
+
+  # ✅ ATTACH SUMMARY TO AZURE SUMMARY TAB
+  - script: |
+      echo "##vso[task.addattachment type=Distributedtask.Core.Summary;name=Visual Regression Report;]$(Build.SourcesDirectory)/visual-summary.md"
+    displayName: Attach Visual Regression Summary
+
+  # 📦 PUBLISH EXTENT REPORT & SCREENSHOTS
+  - task: PublishPipelineArtifact@1
+    displayName: Publish Extent Report
+    inputs:
+      targetPath: 'reports'
+      artifact: 'Visual-Regression-Report'
+      publishLocation: 'pipeline'

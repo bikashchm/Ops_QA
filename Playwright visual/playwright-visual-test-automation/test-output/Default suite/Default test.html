@@ -1,0 +1,637 @@
+<html>
+<head>
+<title>TestNG:  Default test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Default test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>20/2/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Mar 03 16:48:52 IST 2026</td>
+</tr>
+<tr><td>Total time:</td><td>1190 seconds (1190103 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runWellboreConfigurationTest()'><b>runWellboreConfigurationTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td><div><pre>com.microsoft.playwright.TimeoutError: Error {
+  message=&apos;Timeout 30000ms exceeded.
+  name=&apos;TimeoutError
+  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\progress.js:75:26)
+    at Frame.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\frames.js:1022:23)
+    at FrameDispatcher.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\frameDispatcher.js:157:30)
+    at FrameDispatcher._handleCommand (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:96:40)
+    at DispatcherConnection.dispatch (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:366:39)
+}
+Call log:
+-   - waiting for locator(&quot;//ng-select[@id=&apos;specify&apos;]/div/div&quot;)
+-     - locator resolved to &lt;div class=&quot;ng-value-container&quot;&gt;…&lt;/div&gt;
+-   - attempting click action
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-     - waiting 20ms
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-       - waiting 100ms
+-     57 × waiting for element to be visible, enabled and stable
+-        - element is not visible
+-      - retrying click action
+-        - waiting 500ms
+-     - waiting for element to be visible, enabled and stable
+
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:132)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:118)
+	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:252)
+	at com.microsoft.playwright.impl.FrameImpl.lambda$click$8(FrameImpl.java:243)
+	at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:97)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
+	at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:243)
+	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:174)
+	at com.microsoft.playwright.Locator.click(Locator.java:2508)
+	at com.qa.visual.tests.WellboreConfiguration.verifyWellboreConfigurationPageVisualRegression(WellboreConfiguration.java:110)
+	at com.qa.visual.runner.MasterTestRunner.runWellboreConfigurationTest(MasterTestRunner.java:172)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: com.microsoft.playwright.TimeoutError: Error {
+  message=&apos;Timeout 30000ms exceeded.
+  name=&apos;TimeoutError
+  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\progress.js:75:26)
+    at Frame.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\frames.js:1022:23)
+    at FrameDispatcher.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\frameDispatcher.js:157:30)
+    at FrameDispatcher._handleCommand (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:96:40)
+    at DispatcherConnection.dispatch (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:366:39)
+}
+Call log:
+-   - waiting for locator(&quot;//ng-select[@id=&apos;specify&apos;]/div/div&quot;)
+-     - locator resolved to &lt;div class=&quot;ng-value-container&quot;&gt;…&lt;/div&gt;
+-   - attempting click action
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-     - waiting 20ms
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-       - waiting 100ms
+-     57 × waiting for element to be visible, enabled and stable
+-        - element is not visible
+-      - retrying click action
+-        - waiting 500ms
+-     - waiting for element to be visible, enabled and stable
+
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:254)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:130)
+	... 39 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace890160158", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace890160158'><pre>com.microsoft.playwright.TimeoutError: Error {
+  message=&apos;Timeout 30000ms exceeded.
+  name=&apos;TimeoutError
+  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\progress.js:75:26)
+    at Frame.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\frames.js:1022:23)
+    at FrameDispatcher.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\frameDispatcher.js:157:30)
+    at FrameDispatcher._handleCommand (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:96:40)
+    at DispatcherConnection.dispatch (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:366:39)
+}
+Call log:
+-   - waiting for locator(&quot;//ng-select[@id=&apos;specify&apos;]/div/div&quot;)
+-     - locator resolved to &lt;div class=&quot;ng-value-container&quot;&gt;…&lt;/div&gt;
+-   - attempting click action
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-     - waiting 20ms
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-       - waiting 100ms
+-     57 × waiting for element to be visible, enabled and stable
+-        - element is not visible
+-      - retrying click action
+-        - waiting 500ms
+-     - waiting for element to be visible, enabled and stable
+
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:132)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:118)
+	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:252)
+	at com.microsoft.playwright.impl.FrameImpl.lambda$click$8(FrameImpl.java:243)
+	at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:97)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
+	at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:243)
+	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:174)
+	at com.microsoft.playwright.Locator.click(Locator.java:2508)
+	at com.qa.visual.tests.WellboreConfiguration.verifyWellboreConfigurationPageVisualRegression(WellboreConfiguration.java:110)
+	at com.qa.visual.runner.MasterTestRunner.runWellboreConfigurationTest(MasterTestRunner.java:172)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: com.microsoft.playwright.TimeoutError: Error {
+  message=&apos;Timeout 30000ms exceeded.
+  name=&apos;TimeoutError
+  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\progress.js:75:26)
+    at Frame.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\frames.js:1022:23)
+    at FrameDispatcher.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\frameDispatcher.js:157:30)
+    at FrameDispatcher._handleCommand (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:96:40)
+    at DispatcherConnection.dispatch (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:366:39)
+}
+Call log:
+-   - waiting for locator(&quot;//ng-select[@id=&apos;specify&apos;]/div/div&quot;)
+-     - locator resolved to &lt;div class=&quot;ng-value-container&quot;&gt;…&lt;/div&gt;
+-   - attempting click action
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-     - waiting 20ms
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-       - waiting 100ms
+-     57 × waiting for element to be visible, enabled and stable
+-        - element is not visible
+-      - retrying click action
+-        - waiting 500ms
+-     - waiting for element to be visible, enabled and stable
+
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:254)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:130)
+	... 39 more
+</pre></div></td>
+<td>132</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runMaterialSelectionTest()'><b>runMaterialSelectionTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td><div><pre>com.microsoft.playwright.TimeoutError: Error {
+  message=&apos;Timeout 30000ms exceeded.
+  name=&apos;TimeoutError
+  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\progress.js:75:26)
+    at Frame.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\frames.js:1022:23)
+    at FrameDispatcher.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\frameDispatcher.js:157:30)
+    at FrameDispatcher._handleCommand (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:96:40)
+    at DispatcherConnection.dispatch (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:366:39)
+}
+Call log:
+-   - waiting for locator(&quot;//*[@alt=&apos;Edit&apos;]&quot;)
+-     - locator resolved to &lt;img alt=&quot;Edit&quot; src=&quot;assets/icons/edit_square.svg&quot;/&gt;
+-   - attempting click action
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is visible, enabled and stable
+-       - scrolling into view if needed
+-       - done scrolling
+-       - &lt;div&gt;…&lt;/div&gt; intercepts pointer events
+-     - retrying click action
+-     - waiting 20ms
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is visible, enabled and stable
+-       - scrolling into view if needed
+-       - done scrolling
+-       - &lt;div&gt;…&lt;/div&gt; intercepts pointer events
+-     - retrying click action
+-       - waiting 100ms
+-     57 × waiting for element to be visible, enabled and stable
+-        - element is visible, enabled and stable
+-        - scrolling into view if needed
+-        - done scrolling
+-        - &lt;div&gt;…&lt;/div&gt; intercepts pointer events
+-      - retrying click action
+-        - waiting 500ms
+
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:132)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:118)
+	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:252)
+	at com.microsoft.playwright.impl.PageImpl.lambda$click$18(PageImpl.java:688)
+	at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:97)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
+	at com.microsoft.playwright.impl.PageImpl.click(PageImpl.java:687)
+	at com.microsoft.playwright.Page.click(Page.java:3931)
+	at com.qa.visual.utils.CommonUtils.click(CommonUtils.java:88)
+	at com.qa.visual.tests.Material_Selection.verifyMaterialSelectionWorkflowVisuals(Material_Selection.java:66)
+	at com.qa.visual.runner.MasterTestRunner.runMaterialSelectionTest(MasterTestRunner.java:208)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: com.microsoft.playwright.TimeoutError: Error {
+  message=&apos;Timeout 30000ms exceeded.
+  name=&apos;TimeoutError
+  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\progress.js:75:26)
+    at Frame.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\frames.js:1022:23)
+    at FrameDispatcher.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\frameDispatcher.js:157:30)
+    at FrameDispatcher._handleCommand (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:96:40)
+    at DispatcherConnection.dispatch (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:366:39)
+}
+Call log:
+-   - waiting for locator(&quot;//*[@alt=&apos;Edit&apos;]&quot;)
+-     - locator resolved to &lt;img alt=&quot;Edit&quot; src=&quot;assets/icons/edit_square.svg&quot;/&gt;
+-   - attempting click action
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is visible, enabled and stable
+-       - scrolling into view if needed
+-       - done scrolling
+-       - &lt;div&gt;…&lt;/div&gt; intercepts pointer events
+-     - retrying click action
+-     - waiting 20ms
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is visible, enabled and stable
+-       - scrolling into view if needed
+-       - done scrolling
+-       - &lt;div&gt;…&lt;/div&gt; intercepts pointer events
+-     - retrying click action
+-       - waiting 100ms
+-     57 × waiting for element to be visible, enabled and stable
+-        - element is visible, enabled and stable
+-        - scrolling into view if needed
+-        - done scrolling
+-        - &lt;div&gt;…&lt;/div&gt; intercepts pointer events
+-      - retrying click action
+-        - waiting 500ms
+
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:254)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:130)
+	... 39 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace237373286", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace237373286'><pre>com.microsoft.playwright.TimeoutError: Error {
+  message=&apos;Timeout 30000ms exceeded.
+  name=&apos;TimeoutError
+  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\progress.js:75:26)
+    at Frame.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\frames.js:1022:23)
+    at FrameDispatcher.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\frameDispatcher.js:157:30)
+    at FrameDispatcher._handleCommand (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:96:40)
+    at DispatcherConnection.dispatch (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:366:39)
+}
+Call log:
+-   - waiting for locator(&quot;//*[@alt=&apos;Edit&apos;]&quot;)
+-     - locator resolved to &lt;img alt=&quot;Edit&quot; src=&quot;assets/icons/edit_square.svg&quot;/&gt;
+-   - attempting click action
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is visible, enabled and stable
+-       - scrolling into view if needed
+-       - done scrolling
+-       - &lt;div&gt;…&lt;/div&gt; intercepts pointer events
+-     - retrying click action
+-     - waiting 20ms
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is visible, enabled and stable
+-       - scrolling into view if needed
+-       - done scrolling
+-       - &lt;div&gt;…&lt;/div&gt; intercepts pointer events
+-     - retrying click action
+-       - waiting 100ms
+-     57 × waiting for element to be visible, enabled and stable
+-        - element is visible, enabled and stable
+-        - scrolling into view if needed
+-        - done scrolling
+-        - &lt;div&gt;…&lt;/div&gt; intercepts pointer events
+-      - retrying click action
+-        - waiting 500ms
+
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:132)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:118)
+	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:252)
+	at com.microsoft.playwright.impl.PageImpl.lambda$click$18(PageImpl.java:688)
+	at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:97)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
+	at com.microsoft.playwright.impl.PageImpl.click(PageImpl.java:687)
+	at com.microsoft.playwright.Page.click(Page.java:3931)
+	at com.qa.visual.utils.CommonUtils.click(CommonUtils.java:88)
+	at com.qa.visual.tests.Material_Selection.verifyMaterialSelectionWorkflowVisuals(Material_Selection.java:66)
+	at com.qa.visual.runner.MasterTestRunner.runMaterialSelectionTest(MasterTestRunner.java:208)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: com.microsoft.playwright.TimeoutError: Error {
+  message=&apos;Timeout 30000ms exceeded.
+  name=&apos;TimeoutError
+  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\progress.js:75:26)
+    at Frame.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\frames.js:1022:23)
+    at FrameDispatcher.click (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\frameDispatcher.js:157:30)
+    at FrameDispatcher._handleCommand (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:96:40)
+    at DispatcherConnection.dispatch (C:\Users\WALKIN~1\AppData\Local\Temp\playwright-java-8650063456994504880\package\lib\server\dispatchers\dispatcher.js:366:39)
+}
+Call log:
+-   - waiting for locator(&quot;//*[@alt=&apos;Edit&apos;]&quot;)
+-     - locator resolved to &lt;img alt=&quot;Edit&quot; src=&quot;assets/icons/edit_square.svg&quot;/&gt;
+-   - attempting click action
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is visible, enabled and stable
+-       - scrolling into view if needed
+-       - done scrolling
+-       - &lt;div&gt;…&lt;/div&gt; intercepts pointer events
+-     - retrying click action
+-     - waiting 20ms
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is visible, enabled and stable
+-       - scrolling into view if needed
+-       - done scrolling
+-       - &lt;div&gt;…&lt;/div&gt; intercepts pointer events
+-     - retrying click action
+-       - waiting 100ms
+-     57 × waiting for element to be visible, enabled and stable
+-        - element is visible, enabled and stable
+-        - scrolling into view if needed
+-        - done scrolling
+-        - &lt;div&gt;…&lt;/div&gt; intercepts pointer events
+-      - retrying click action
+-        - waiting 500ms
+
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:254)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:130)
+	... 39 more
+</pre></div></td>
+<td>125</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runHomePageTest()'><b>runHomePageTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>42</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runEntryFrictionTest()'><b>runEntryFrictionTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>46</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runPlotTest()'><b>runPlotTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>75</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runNewDashboardTest()'><b>runNewDashboardTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>44</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runReportTest()'><b>runReportTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>51</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runSaveAndNextTest()'><b>runSaveAndNextTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>41</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runForgetPasswordTest()'><b>runForgetPasswordTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>15</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runLoginTest()'><b>runLoginTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>27</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runVersionControlTest()'><b>runVersionControlTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>46</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runMyProfileTest()'><b>runMyProfileTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>36</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runWellAndTreatmentLocationVisualTest()'><b>runWellAndTreatmentLocationVisualTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>56</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runWellAndTreatmentVisualTest()'><b>runWellAndTreatmentVisualTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>64</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runTreatmentScheduleTest()'><b>runTreatmentScheduleTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>61</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runRunModelTest()'><b>runRunModelTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>53</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runLandingPageVisualTest()'><b>runLandingPageVisualTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>36</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runUserDefinedChannelTest()'><b>runUserDefinedChannelTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>40</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runChannelInputTest()'><b>runChannelInputTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>49</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runWellAndTreatmentCommentsVisualTest()'><b>runWellAndTreatmentCommentsVisualTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>44</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runResorviorParameterVisualTest()'><b>runResorviorParameterVisualTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>34</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+<tr>
+<td title='com.qa.visual.runner.MasterTestRunner.runHeatTransferVisualRegressionTest()'><b>runHeatTransferVisualRegressionTest</b><br>Test class: com.qa.visual.runner.MasterTestRunner</td>
+<td></td>
+<td>62</td>
+<td>com.qa.visual.runner.MasterTestRunner@179ece50</td></tr>
+</table><p>
+</body>
+</html>
